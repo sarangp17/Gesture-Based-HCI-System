@@ -22,6 +22,10 @@ A real-time hand gesture recognition system that allows users to control **scree
  **Mouse Movement** — Move the cursor using **right hand** (index and middle finger)
 
 
+Novelty - A combination of these three features together for developing a new software for making it user friendly and usable in daily life.
+
+
+
 
  Tech Stack
 
@@ -32,6 +36,9 @@ A real-time hand gesture recognition system that allows users to control **scree
 - screen_brightness_control
 - pycaw
 - pyautogui
+
+
+
 
 
 
