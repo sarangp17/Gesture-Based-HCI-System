@@ -4,7 +4,7 @@ A real-time human-computer interaction system using webcam-based hand tracking t
 # ***SAVE ALL THE FILES IN 1 FOLDER ONLY.***
 # ***TRY RUNNING ONLY 1 TKINTER FILE.***
 # ***MAKE SURE YOU DOWNLOADED ALL THE REQUIRED PYTHON DEPENDENCIES AND LIBRARIES.***
-
+ 
 
 
 
