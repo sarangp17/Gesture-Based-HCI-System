@@ -1,6 +1,11 @@
 # Gesture-Based-Human-Computer-System
 A real-time human-computer interaction system using webcam-based hand tracking to control volume, brightness, and mouse movement. Built with OpenCV and Mediapipe, it uses finger distance and hand landmarks to trigger system-level actions.
 
+# ***SAVE ALL THE FILES IN 1 FOLDER ONLY.***
+# ***TRY RUNNING ONLY 1 TKINTER FILE.***
+# ***MAKE SURE YOU DOWNLOADED ALL THE REQUIRED PYTHON DEPENDENCIES AND LIBRARIES.***
+
+
 
 
 
