@@ -1,99 +1,128 @@
-# Gesture-Based-Human-Computer-System
-A real-time human-computer interaction system using webcam-based hand tracking to control volume, brightness, and mouse movement. Built with OpenCV and Mediapipe, it uses finger distance and hand landmarks to trigger system-level actions.
-
-# ***SAVE ALL THE FILES IN 1 FOLDER ONLY.***
-# ***TRY RUNNING ONLY 1 TKINTER FILE.***
-# ***MAKE SURE YOU DOWNLOADED ALL THE REQUIRED PYTHON DEPENDENCIES AND LIBRARIES.***
- 
 
 
+# Gesture-Based Human-Computer Interaction System
 
-
-# Gesture-Based Human-Computer Interaction
-
-A real-time hand gesture recognition system that allows users to control **screen brightness**, **volume**, and **mouse movement** using a webcam and simple finger gestures. It utilizes MediaPipe for landmark detection and OpenCV for image processing.
+A real-time gesture-controlled interface that transforms your webcam into an intuitive input device for managing **volume**, **screen brightness**, and **mouse movement** — all through **hand gestures**. This system offers a touchless control mechanism using computer vision and hand landmark tracking. It provides an accessible and practical alternative to traditional input hardware, useful in accessibility solutions, presentations, and hands-free environments.
 
 ---
 
- Features
+## How the System Works (Backend Perspective)
 
- **Brightness Control** — Adjust screen brightness using **left hand** (thumb and index finger distance)
- **Volume Control** — Change system volume using **right hand** (thumb and pinky distance)
- **Mouse Movement** — Move the cursor using **right hand** (index and middle finger)
+This system combines **MediaPipe** and **OpenCV** to detect and analyze hand gestures in real time. Here's how it functions behind the scenes:
 
+1. **Video Frame Capture**
+   The system uses OpenCV to read frames from the webcam. Each frame is passed through the pipeline for processing.
 
-Novelty - A combination of these three features together for developing a new software for making it user friendly and usable in daily life.
+2. **Hand Landmark Detection with MediaPipe**
+   MediaPipe detects up to 21 landmarks for each hand in every frame. These landmarks include fingertip positions, joints, and the wrist. Landmark data is used to determine the gesture being made.
 
+3. **Gesture Interpretation and Mapping**
 
+   * **Brightness Control (Left Hand)**:
+     The distance between the thumb tip and index fingertip is calculated and mapped to screen brightness using the `screen_brightness_control` library.
+   * **Volume Control (Right Hand)**:
+     The distance between the thumb tip and pinky tip is used to control system volume using `pycaw`, which interacts with Windows Core Audio APIs.
+   * **Mouse Movement (Right Hand)**:
+     The position of the index and middle fingertips is mapped to screen coordinates and updated in real time using `pyautogui`. Movements are smoothed to enhance user experience.
 
+4. **Command Execution**
+   Once the gestures are interpreted, the system sends the appropriate commands to the OS to change volume, brightness, or cursor position.
 
- Tech Stack
+5. **(Optional) GUI with Tkinter**
+   If enabled, a Tkinter-based GUI can provide a visual interface, but only one such file should be run at a time to avoid conflicts.
 
-- Python
-- OpenCV
-- MediaPipe
-- NumPy
-- screen_brightness_control
-- pycaw
-- pyautogui
+---
 
+## Features
 
+* Screen Brightness Control via **left hand** (thumb–index finger distance)
+* System Volume Control via **right hand** (thumb–pinky distance)
+* Real-time Mouse Movement via **right hand** (index–middle finger tracking)
+* Smooth and real-time gesture tracking
+* Modular codebase for easy extension and integration
 
+---
 
+## Technical Stack
 
+* Python
+* OpenCV
+* MediaPipe
+* NumPy
+* pyautogui
+* screen\_brightness\_control
+* pycaw
 
-How It Works
+---
 
-- Webcam captures real-time hand gestures.
-- MediaPipe tracks hand landmarks.
-- Distance between specific fingers triggers system-level actions:
-  - Brightness: Left hand – index ↔ thumb
-  - Volume: Right hand – pinky ↔ thumb
-  - Mouse: Right hand – cursor follows finger
+## Novelty
 
+This project goes beyond basic gesture recognition in the following ways:
 
+* Combines **three distinct system-level controls** (brightness, volume, and mouse) into **a single unified hand gesture interface**.
+* Uses **both hands separately** for different functionalities, increasing accuracy and reducing gesture collisions.
+* Achieves **real-time, non-intrusive control** without relying on specialized hardware — only a standard webcam is needed.
+* Designed to be **platform-light**, requiring no external servers or cloud-based APIs.
+* Easily extendable for future controls like **clicking, media playback, slide navigation**, or **custom gesture mapping**.
 
- Setup Instructions
+---
 
-1. Clone the repository
-   
+## Setup Instructions
 
-2. Install dependencies
+1. Clone the repository:
 
-   
-   pip install opencv-python mediapipe numpy screen_brightness_control pycaw pyautogui
-   
+   ```bash
+   git clone https://github.com/your-username/Gesture-Based-Human-Computer-System
+   cd Gesture-Based-Human-Computer-System
+   ```
 
-3. Run the script
+2. Install dependencies:
 
-   
+   ```bash
+   pip install opencv-python mediapipe numpy pyautogui pycaw screen_brightness_control
+   ```
+
+3. Run the main script:
+
+   ```bash
    python main.py
-   
+   ```
 
+---
 
+## File Overview
 
- File Overview
+* `main.py`: Core logic for webcam input, gesture detection, and system-level control
+* `brightness.py`: Brightness adjustment based on left-hand gestures
+* `volume.py`: Volume control logic using right-hand gestures
+* `mouse.py`: Mouse movement via right-hand finger tracking
+* `utils.py`: Helper functions such as distance calculation and frame smoothing
 
-* `main.py` — Main logic for camera input and gesture control.
-* `Brightness()` — Function to adjust brightness using hand tracking.
+---
 
+## Notes
 
+* Use in a well-lit environment for optimal accuracy
+* Works best on **Windows** (brightness and volume control libraries are Windows-specific)
+* Ensure webcam access is enabled and no other apps are using it
+* Save **all files in a single folder**
+* Run **only one Tkinter file** at a time if using GUI
 
- Notes
+---
 
-* Use in a well-lit room for better detection.
-* Works best on Windows (brightness control may vary on Linux/macOS).
-* Ensure webcam permissions are enabled.
+## To-Do
 
+* Add gesture-based clicking and right-clicking
+* Display on-screen indicators for gesture status
+* Improve robustness in low-light or cluttered backgrounds
+* Add support for multi-monitor setups
+* Add custom user-defined gesture mappings
 
+---
 
- To-Do
+## By-
 
-* Add gesture-based clicking
-* Add on-screen indicators for actions
-* Optimize hand detection in varying lighting
+**Sarang Palsutkar**
 
-
-
-Built by Sarang Palsutkar
+---
 
